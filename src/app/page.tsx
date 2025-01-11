@@ -1,15 +1,9 @@
-import Button from "./components/profile/button";
-import Image from "next/image";
+import Profile from "./components/profile";
 
 export default function Home() {
   return (
-    <main>
-      <h1>
-        Hi, I’m Wong Yi Zhen Nicholas, specializes in Frontend position, looking
-        to become a Full-Stack in the future.
-      </h1>
-      {/* <Image src={"/zn.jpg"} width={480} height={480}></Image> */}
-      <Button text="meow" />
+    <main style={{ padding: "40px" }}>
+      <Profile />
     </main>
   );
 }

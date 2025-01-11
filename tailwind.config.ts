@@ -13,7 +13,7 @@ const config: Config = {
         h6: "19.2px",
       },
       colors: {
-        "blue-300": "1957FF",
+        "blue-300": "#1957FF",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
