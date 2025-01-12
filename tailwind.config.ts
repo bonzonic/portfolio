@@ -10,6 +10,10 @@ const config: Config = {
     extend: {
       fontSize: {
         h1: "47.8px",
+        h2: "39.8px",
+        h3: "33.2px",
+        h4: "27.6px",
+        h5: "23px",
         h6: "19.2px",
       },
       colors: {
