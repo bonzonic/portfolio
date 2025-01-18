@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.card {
+  @apply bg-white p-4 rounded-2xl shadow-md;
+}
