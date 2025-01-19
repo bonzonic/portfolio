@@ -16,9 +16,6 @@ const config: Config = {
         h5: "23px",
         h6: "19.2px",
       },
-      colors: {
-        "blue-300": "#1957FF",
-      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
