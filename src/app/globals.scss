@@ -1,17 +1,22 @@
 @tailwind base;
 @tailwind utilities;
+
 @theme {
   --color-blue-200: #4D7DFF;
 }
+
+$top-background: #191F45;
+
 /* 
 Root
 */
+
 h1 {
-  font-size: 47.8px;
+  font-size: 47.8px
 }
 
 h2 {
-  font-size: 39.8px;
+  font-size: 39.8px
 }
 
 h3 {
@@ -37,17 +42,19 @@ h6 {
     --background-end-rgb: 0, 0, 0;
   }
 }
+
 .card {
   @apply bg-white p-4 rounded-2xl shadow-md;
 }
 
 .line-stroke {
-  @apply divide-opacity-30 divide-black;
+  @apply divide-opacity-30 divide-black
 }
 
 /* 
 Nav Panel 
 */
+
 .toggle-switch {
   position: relative;
   display: inline-block;
@@ -87,12 +94,10 @@ Nav Panel
 }
 
 /* Toggled state */
-.toggle-switch input:checked + .slider {
-  background-color: #191F45;
+.toggle-switch input:checked+.slider {
+  background-color: $top-background;
 }
 
-.toggle-switch input:checked + .slider::before {
+.toggle-switch input:checked+.slider::before {
   transform: translateX(22px);
 }
-
-/*# sourceMappingURL=globals.css.map */
