@@ -5,6 +5,6 @@ export interface Achievement {
   url: string;
 }
 
-export const achievements: Achievement[] = [{
-  title: 
-}]
+// export const achievements: Achievement[] = [{
+//   title: 
+// }]

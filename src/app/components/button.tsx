@@ -25,13 +25,8 @@ export default function Button({
       onClick={onClick}
     >
       <div
-        className={`bg-blue-400 active:bg-blue-500 hover:bg-blue-500 flex flex-row py-1 px-4 text-white rounded-md items-center ${
-          active
-            ? "outline outline-2 outline-offset-2 outline-black bg-blue-500"
-            : ""
-        }`}
+        className={`bg-[#4D7DFF] hover:bg-blue-500 flex flex-row gap-1.5 py-1 px-3 text-neutral-50 rounded-lg items-center`}
       >
-        <h6 className="text-lg">{name}</h6>
         {image ? (
           <Image
             className="ml-1"
@@ -43,6 +38,7 @@ export default function Button({
         ) : (
           <></>
         )}
+        <p>{name}</p>
       </div>
     </a>
   );
