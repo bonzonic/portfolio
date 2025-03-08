@@ -10,6 +10,10 @@
   }
 }
 
+@theme {
+    --color-top-background-white: #FCFAFA;
+}
+
 h1 {
   font-size: 47.8px;
 }

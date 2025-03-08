@@ -3,7 +3,7 @@ import Button from "./button";
 
 export default function Profile() {
   return (
-    <section className="flex gap-10">
+    <section className="flex gap-10 mb-10">
       <Image
         className="rounded-full w-[200px] h-[200px]"
         src="/zn.jpg"
