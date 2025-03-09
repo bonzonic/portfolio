@@ -1,11 +1,10 @@
+import Chip, { ChipProps } from "../components/chip";
 import {
-  getSoftwareTools,
-  getFrontendTools,
-  getBackendTools,
-  getOtherTechTools,
+  softwareTools,
+  frontendTools,
+  backendTools,
+  otherTechTools,
 } from "../data/tool";
-
-import Chip, { ChipProps } from "./chip";
 
 const Tool = ({
   title,
@@ -37,22 +36,22 @@ const ToolSection = () => (
   <div className="flex flex-col gap-6">
     <Tool
       title="Software"
-      tools={getSoftwareTools()}
+      tools={softwareTools}
       caption="Trusty tools that I build software with"
     ></Tool>
     <Tool
       title="Frontend"
-      tools={getFrontendTools()}
+      tools={frontendTools}
       caption="Can't build a website without these tools"
     ></Tool>
     <Tool
       title="Backend"
-      tools={getBackendTools()}
+      tools={backendTools}
       caption="The magic behind the scenes"
     ></Tool>
     <Tool
       title="Other Tech"
-      tools={getOtherTechTools()}
+      tools={otherTechTools}
       caption="Where I dabble in other technologies"
     ></Tool>
   </div>

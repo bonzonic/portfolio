@@ -6,7 +6,6 @@ interface ButtonValue {
   image?: string;
   download?: boolean;
   onClick?: () => void;
-  active?: boolean;
 }
 
 export default function Button({
@@ -15,7 +14,6 @@ export default function Button({
   image = undefined,
   download = false,
   onClick = () => false,
-  active = false,
 }: ButtonValue) {
   return (
     <a

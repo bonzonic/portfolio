@@ -62,11 +62,11 @@ const ProjectSection = () => {
     <div className="flex flex-col gap-10">
       <Project {...projects[0]}>
         <p>
-          This portfolio is the very project you're exploring right now! 🚀Built
-          with <b>Next.js</b>, <b>Tailwind CSS</b>, and <b>TypeScript</b>, it
-          took me 2 months to bring it to life. Every component was crafted with
-          performance and responsiveness in mind. Excited to keep pushing
-          boundaries and refining my craft! 🌟
+          This portfolio is the very project you&apos;re exploring right now!
+          🚀Built with <b>Next.js</b>, <b>Tailwind CSS</b>, and{" "}
+          <b>TypeScript</b>, it took me 2 months to bring it to life. Every
+          component was crafted with performance and responsiveness in mind.
+          Excited to keep pushing boundaries and refining my craft! 🌟
         </p>
         <br />
         <p>

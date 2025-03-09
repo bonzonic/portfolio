@@ -2,7 +2,7 @@ import { ChipProps } from "../components/chip";
 
 const iconPath = "/icons/"
 
-export const getSoftwareTools = (): ChipProps[] =>  [
+export const softwareTools:ChipProps[] =    [
         {
             icon: `${iconPath}vscode-white.png`,
             name: "VS Code"
@@ -21,7 +21,7 @@ export const getSoftwareTools = (): ChipProps[] =>  [
         },
     ];
 
-export const getFrontendTools =  (): ChipProps[] => [
+export const frontendTools: ChipProps[] =  [
     {
         icon: `${iconPath}html-white.png`,
         name: "HTML"
@@ -64,7 +64,7 @@ export const getFrontendTools =  (): ChipProps[] => [
     }
 ];
 
-export const getBackendTools =  (): ChipProps[] => [
+export const backendTools : ChipProps[] = [
     {
         icon: `${iconPath}java-white.png`,
         name: "Java"
@@ -87,7 +87,7 @@ export const getBackendTools =  (): ChipProps[] => [
     },
 ];
 
-export const getOtherTechTools =  (): ChipProps[] => [
+export const otherTechTools:  ChipProps[] =  [
     {
         icon: `${iconPath}python-white.png`,
         name: "Python"
