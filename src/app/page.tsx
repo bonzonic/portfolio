@@ -1,11 +1,12 @@
 "use client";
 
+import AchievementSection from "./sections/achievement-section";
 import NavPanel from "./components/nav-panel";
-import Profile from "./components/profile";
-import ProjectSection from "./components/project-section";
+import Profile from "./sections/profile";
+import ProjectSection from "./sections/project-section";
 import SectionBreak from "./components/section-break";
-import ToolSection from "./components/tool-section";
-import WorkSection from "./components/work-section";
+import ToolSection from "./sections/tool-section";
+import WorkSection from "./sections/work-section";
 
 export default function Home() {
   return (
@@ -26,6 +27,12 @@ export default function Home() {
           </SectionBreak>
           <SectionBreak text={"Projects"}>
             <ProjectSection />
+          </SectionBreak>
+          <SectionBreak text={"Achievements"}>
+            <AchievementSection />
+          </SectionBreak>
+          <SectionBreak text={"Contact"}>
+            <AchievementSection />
           </SectionBreak>
         </div>
       </div>
