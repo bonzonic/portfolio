@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function NavPanel() {
   return (
-    <div className="sticky h-screen">
+    <div className="fixed">
       <nav className="h-screen w-[305px] flex justify-center">
         <div className="flex-col flex gap-14 justify-center">
           <a className="flex items-center gap-6">
