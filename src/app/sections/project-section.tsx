@@ -1,7 +1,9 @@
 import React from "react";
-import ButtonWithLink, { ButtonWithLinkProps } from "./button-with-link";
 import Image from "next/image";
 import { projects } from "../data/project";
+import ButtonWithLink, {
+  ButtonWithLinkProps,
+} from "../components/button-with-link";
 
 export interface ProjectProps {
   title: string;
@@ -80,17 +82,6 @@ const ProjectSection = () => {
           #UIUX #Figma #Innovative #FirePortfolio🔥#Creative #NextJS
           #TailwindCSS
         </p>
-        {/* {"This portfolio is the very project you're exploring right now! \ // TODO: remove this
-            🚀Built with Next.js, Tailwind CSS, and TypeScript, it took me 2 months to bring it to life. Every component was crafted with \
-            performance and responsiveness in mind. Excited to keep pushing boundaries  and refining my craft! 🌟\n\n" +
-            "Before bringing my portfolio \
-            to life, I crafted its \
-            foundation in Figma!  From random scribbles to a polished UI, every \
-            detail was planned for a seamless user experience.\n" +
-            "Check out the \
-            design process behind the project! 👇\n\n" +
-            "#UIUX #Figma #PortfolioDesign \
-            #Innovative #FirePortfolio🔥 #Creative #NextJS #TailwindCSS"} */}
       </Project>
       <Project {...projects[1]}>
         <p>

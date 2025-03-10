@@ -7,10 +7,11 @@ import ProjectSection from "./sections/project-section";
 import SectionBreak from "./components/section-break";
 import ToolSection from "./sections/tool-section";
 import WorkSection from "./sections/work-section";
+import { ContactSection } from "./sections/contact-section";
 
 export default function Home() {
   return (
-    <main className="h-auto flex flex-row divide-x line-stroke font-[Inter]">
+    <main className="h-auto flex flex-row divide-x line-stroke font-[Inter] bg-[#FAFAFA]">
       <div className="w-[305px]">
         <NavPanel />
       </div>
@@ -32,7 +33,7 @@ export default function Home() {
             <AchievementSection />
           </SectionBreak>
           <SectionBreak text={"Contact"}>
-            <AchievementSection />
+            <ContactSection />
           </SectionBreak>
         </div>
       </div>

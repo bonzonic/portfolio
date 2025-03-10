@@ -1,5 +1,5 @@
-import Chip, { ChipProps } from "./chip";
 import Image from "next/image";
+import Chip, { ChipProps } from "../components/chip";
 
 interface WorkProps {
   imageSrc: string;
