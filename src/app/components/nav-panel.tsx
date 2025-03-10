@@ -5,7 +5,7 @@ export default function NavPanel() {
     <div className="fixed">
       <nav className="h-screen w-[305px] flex justify-center">
         <div className="flex-col flex gap-14 justify-center">
-          <a className="flex items-center gap-6">
+          <a className="flex items-center gap-6" href="#Tools">
             <Image
               className="lg:w-[30px] lg:h-[30px]"
               src="/icons/nav-edit.png"
@@ -15,7 +15,7 @@ export default function NavPanel() {
             ></Image>
             <h5>Tools</h5>
           </a>
-          <a className="flex items-center gap-6">
+          <a className="flex items-center gap-6" href="#Work">
             <Image
               className="lg:w-[30px] lg:h-[30px]"
               src="/icons/nav-favorite.png"
@@ -25,7 +25,7 @@ export default function NavPanel() {
             ></Image>
             <h5>Work</h5>
           </a>
-          <a className="flex items-center gap-6">
+          <a className="flex items-center gap-6" href="#Projects">
             <Image
               className="lg:w-[30px] lg:h-[30px]"
               src="/icons/nav-project.png"
@@ -35,7 +35,7 @@ export default function NavPanel() {
             ></Image>
             <h5>Projects</h5>
           </a>
-          <a className="flex items-center gap-6">
+          <a className="flex items-center gap-6" href="#Achievements">
             <Image
               className="lg:w-[30px] lg:h-[30px]"
               src="/icons/nav-achievement.png"
@@ -45,7 +45,7 @@ export default function NavPanel() {
             ></Image>
             <h5>Achievements</h5>
           </a>
-          <a className="flex items-center gap-6">
+          <a className="flex items-center gap-6" href="#Contact">
             <Image
               className="lg:w-[30px] lg:h-[30px]"
               src="/icons/nav-contact.png"
