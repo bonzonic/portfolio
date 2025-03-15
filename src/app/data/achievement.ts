@@ -9,7 +9,7 @@ export const achievements: Achievement[] = [{
 },
 {
   title: "Best FYP Award 2023 in Monash University Malaysia, awarded by British Petroleum (BP)",
-  imageUrl: "/achievement/best_fyp.png",
+  imageUrl: "/achievement/best-fyp.png",
 },
 {
   title: "2nd place in KL Mini Hack 2023, building a zero-knowledge app for secure voting, won 500 UDST",

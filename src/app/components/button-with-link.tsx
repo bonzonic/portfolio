@@ -2,14 +2,12 @@ import React from "react";
 import Image from "next/image";
 
 export interface ButtonWithLinkProps {
-  items: {
-    text: string;
-    icon: string;
-    link: string;
-  }[];
+  text: string;
+  icon: string;
+  link: string;
 }
 
-const ButtonWithLink = ({ items }: ButtonWithLinkProps) => {
+const ButtonWithLink = ({ items }: { items: ButtonWithLinkProps[] }) => {
   return (
     <div className="flex flex-row p-2 gap-2 justify-stretch">
       {items.map((item, index) => (

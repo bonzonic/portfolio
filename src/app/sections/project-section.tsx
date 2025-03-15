@@ -9,7 +9,7 @@ export interface ProjectProps {
   title: string;
   children: React.ReactNode;
   imageSrcs: string[];
-  buttons: ButtonWithLinkProps;
+  buttons: ButtonWithLinkProps[];
 }
 
 const ImagePartition = ({ images }: { images: string[] }) => {
@@ -54,7 +54,7 @@ const Project = ({ title, children, imageSrcs, buttons }: ProjectProps) => {
       </h5>
       {children}
       <ImagePartition images={imageSrcs}></ImagePartition>
-      <ButtonWithLink items={buttons.items}></ButtonWithLink>
+      <ButtonWithLink items={buttons}></ButtonWithLink>
     </div>
   );
 };
