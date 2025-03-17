@@ -7,7 +7,7 @@ interface Comment {
   reply?: Comment[];
 }
 
-export interface Popup {
+export interface PopupProps {
   title: string;
   description: string;
   imageSrcs: string[];
@@ -15,29 +15,30 @@ export interface Popup {
   comments: Comment[];
 }
 
-export const portfolioPopup: Popup = {
+export const portfolioPopup: PopupProps = {
   title: "Portfolio🔥🔥🔥🔥🔥",
-  description: `This portfolio is the very project you're exploring right now! 🚀Built with Next.js, Tailwind CSS, and TypeScript, 
-      it took me 2 months to bring it to life. Every component was crafted with performance and responsiveness in mind. Excited to keep pushing 
-      boundaries and refining my craft! 🌟
-      Before bringing my portfolio to life, I crafted its foundation in Figma! From random scribbles to a polished UI, every detail was planned for a seamless user experience.
-      Check out the design process behind the project! 👇
-      #UIUX #Figma #Innovative #FirePortfolio🔥#Creative #NextJS #TailwindCSS`,
-  imageSrcs: ["google_1.png", "google_2.png", "google_3.png"],
+  description:
+    "This portfolio is the very project you're exploring right now! 🚀Built with Next.js, Tailwind CSS, and TypeScript, \
+      it took me 2 months to bring it to life. Every component was crafted with performance and responsiveness in mind. Excited to keep pushing \
+      boundaries and refining my craft! 🌟 \
+      Before bringing my portfolio to life, I crafted its foundation in Figma! From random scribbles to a polished UI, every detail was planned for a seamless user experience. \
+      Check out the design process behind the project! 👇 \
+      #UIUX #Figma #Innovative #FirePortfolio🔥#Creative #NextJS #TailwindCSS",
+  imageSrcs: ["google-1.png", "google-2.png", "google-3.png"],
   buttons: [
     {
       text: "Demo",
-      icon: "link-arrow-white.png",
+      icon: "/icons/link-arrow-white.png",
       link: "https://bonzonic.github.io/Google-Frontend/", // TODO: Update link
     },
     {
       text: "GitHub",
-      icon: "github-white.png",
+      icon: "/icons/github-white.png",
       link: "https://bonzonic.github/Google-Frontend/", // TODO: Update link
     },
     {
       text: "Figma",
-      icon: "figma-white.png",
+      icon: "/icons/figma-white.png",
       link: "https://bonzonic.github/Google-Frontend/", // TODO: Update link
     },
   ],
@@ -61,23 +62,23 @@ export const portfolioPopup: Popup = {
   ],
 };
 
-export const googleFePopup: Popup = {
+export const googleFePopup: PopupProps = {
   title: "Google Frontend Clone 🌐",
   description: `As part of the CS50W course, I built this front-end project, replicating Google Search, Google Image Search, 
   and Google Advanced Search. The goal was to recreate the UI while improving my skills in HTML, CSS, and JavaScript.
   Check it out and let me know your thoughts! 👇
 
   #Frontend #CS50W #WebDevelopment #HTML #CSS #JavaScript`,
-  imageSrcs: ["google_1.png", "google_2.png", "google_3.png"],
+  imageSrcs: ["google-1.png", "google-2.png", "google-3.png"],
   buttons: [
     {
       text: "Demo",
-      icon: "link-arrow-white.png",
+      icon: "/icons/link-arrow-white.png",
       link: "https://bonzonic.github.io/Google-Frontend/",
     },
     {
       text: "GitHub",
-      icon: "github-white.png",
+      icon: "/icons/github-white.png",
       link: "https://bonzonic.github/Google-Frontend/",
     },
   ],
@@ -97,7 +98,7 @@ export const googleFePopup: Popup = {
   ],
 };
 
-export const paperPopup: Popup = {
+export const paperPopup: PopupProps = {
   title:
     "Published paper: Preprocessing Variations for Classification in Smart Manufacturing ",
   description: `Collaborating with my other FYP teammates in university, I managed to publish a paper with the title above to the Association for Computing Machinery (ACM). Our paper investigates the impact of preprocessing techniques, including brightness and blurriness adjustments, on the performance of deep learning model when dealing with low-quality visual data (edible bird nest) commonly encountered in industrial settings.
@@ -107,7 +108,7 @@ Key Highlights:➊ Successful development of AI prototype for grading Edible Bir
   buttons: [
     {
       text: "Link",
-      icon: "link-arrow-white.png",
+      icon: "/icons/link-arrow-white.png",
       link: "https://dl.acm.org/doi/10.1145/3611380.3629545",
     },
   ],
@@ -145,7 +146,7 @@ Key Highlights:➊ Successful development of AI prototype for grading Edible Bir
   ],
 };
 
-export const bpPopup: Popup = {
+export const bpPopup: PopupProps = {
   title:
     "Best FYP Award 2023 in Monash University Malaysia, awarded by British Petroleum (BP)",
   description: `Our project utilizes deep learning models such as Faster R-CNN, YoloV8 and MobileNet-V2 to automate the grading of EBN in the manufacturing industry! We also trained the models by incorporating perturbed datasets featuring variations in brightness and bluriness, and included synthetic images to increase the dataset size. Notably, MobileNet-V2 emerged as the optimal choice, striking a balance between speed and accuracy in grading predictions.🚀`,
@@ -153,12 +154,12 @@ export const bpPopup: Popup = {
   buttons: [
     {
       text: "Demo",
-      icon: "link-arrow-white.png",
+      icon: "/icons/link-arrow-white.png",
       link: "https://dl.acm.org/doi/10.1145/3611380.3629545", // TODO: Update link
     },
     {
       text: "Demo",
-      icon: "link-arrow-white.png",
+      icon: "/icons/link-arrow-white.png",
       link: "https://github.com/MCS04/MCS04-AI",
     },
   ],
@@ -171,7 +172,7 @@ export const bpPopup: Popup = {
   ],
 };
 
-export const klMiniHackPopup: Popup = {
+export const klMiniHackPopup: PopupProps = {
   title:
     "2nd place in KL Mini Hack 2023, building a zero-knowledge app for secure voting, won 500 UDST",
   description: `This project won 2nd place in a Web3 Hackathon called KL Mini Hack held on 2023. 
@@ -183,12 +184,12 @@ export const klMiniHackPopup: Popup = {
   buttons: [
     {
       text: "Demo",
-      icon: "link-arrow-white.png",
+      icon: "/icons/link-arrow-white.png",
       link: "https://bonzonic.github.io/KL-Mini-Hack",
     },
     {
       text: "GitHub",
-      icon: "github-white.png",
+      icon: "/icons/github-white.png",
       link: "https://github.com/bonzonic/KL-Mini-Hack",
     },
   ],
@@ -203,7 +204,7 @@ export const klMiniHackPopup: Popup = {
   ],
 };
 
-export const hacktitudePopup: Popup = {
+export const hacktitudePopup: PopupProps = {
   title:
     "Hacktitude Malaysia 2nd Runner-up, fixing FE and BE bugs, won 500 MYR",
   description: `I can’t remember the details of this hackathon, but all I can say was that doing this hackathon was quite fun and that’s all it really matters at the end of the day :)`,
@@ -211,14 +212,14 @@ export const hacktitudePopup: Popup = {
   buttons: [
     {
       text: "Certificate Link",
-      icon: "link-arrow-white.png",
+      icon: "/icons/link-arrow-white.png",
       link: "https://credential.certifyme.online/verify/0fc44a1e7498",
     },
   ],
   comments: [],
 };
 
-export const oWastePopup: Popup = {
+export const oWastePopup: PopupProps = {
   title:
     "Varsity Hackathon, built O-Waste, a waste management platform to incentivize Malaysians to recyle",
   description: `Team of 3 designed an innovative waste management platform that employs gamification and a point redemption system, to encourage Malaysians to actively participate in recycling using Figma.
@@ -227,7 +228,7 @@ export const oWastePopup: Popup = {
   buttons: [
     {
       text: "Figma",
-      icon: "figma-white.png",
+      icon: "/icons/figma-white.png",
       link: "https://www.figma.com/proto/vEvjR8pcu1tjgjnxNSq5Lt/O-Waste?page-id=0%3A1&type=design&node-id=0-1&viewport=296%2C409%2C0.05&scaling=scale-down&starting-point-node-id=1%3A103&show-proto-sidebar=1&mode=design",
     },
   ],

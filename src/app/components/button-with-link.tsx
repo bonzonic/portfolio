@@ -9,7 +9,7 @@ export interface ButtonWithLinkProps {
 
 const ButtonWithLink = ({ items }: { items: ButtonWithLinkProps[] }) => {
   return (
-    <div className="flex flex-row p-2 gap-2 justify-stretch">
+    <button className="flex flex-row p-2 gap-2 justify-stretch">
       {items.map((item, index) => (
         <a
           key={index}
@@ -26,7 +26,7 @@ const ButtonWithLink = ({ items }: { items: ButtonWithLinkProps[] }) => {
           <p>{item.text}</p>
         </a>
       ))}
-    </div>
+    </button>
   );
 };
 
