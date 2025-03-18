@@ -60,7 +60,6 @@ const Project = ({
     <div
       className="bg-top-background-white rounded-2xl px-4 pt-4 flex flex-col border-neutral-700 border shadow-md cursor-pointer"
       onClick={() => {
-        console.log("clicked");
         openPopup({
           title,
           description,
@@ -73,7 +72,7 @@ const Project = ({
       <h5>
         <b>{title}</b>
       </h5>
-      <p>{description}</p>
+      <p className="whitespace-pre-line">{description}</p>
       <ImagePartition images={imageSrcs}></ImagePartition>
       <ButtonWithLink items={buttons}></ButtonWithLink>
     </div>

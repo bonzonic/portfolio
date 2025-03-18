@@ -1,11 +1,5 @@
 import { ButtonWithLinkProps } from "../components/button-with-link";
-
-interface Comment {
-  profileIcon: string;
-  name: string;
-  comment: string;
-  reply?: Comment[];
-}
+import { Comment } from "../components/comment";
 
 export interface PopupProps {
   title: string;
@@ -17,13 +11,11 @@ export interface PopupProps {
 
 export const portfolioPopup: PopupProps = {
   title: "Portfolio🔥🔥🔥🔥🔥",
-  description:
-    "This portfolio is the very project you're exploring right now! 🚀Built with Next.js, Tailwind CSS, and TypeScript, \
-      it took me 2 months to bring it to life. Every component was crafted with performance and responsiveness in mind. Excited to keep pushing \
-      boundaries and refining my craft! 🌟 \
-      Before bringing my portfolio to life, I crafted its foundation in Figma! From random scribbles to a polished UI, every detail was planned for a seamless user experience. \
-      Check out the design process behind the project! 👇 \
-      #UIUX #Figma #Innovative #FirePortfolio🔥#Creative #NextJS #TailwindCSS",
+  description: `This portfolio is the very project you're exploring right now! 🚀Built with Next.js, Tailwind CSS, and TypeScript, it took me 2 months to bring it to life. Every component was crafted with performance and responsiveness in mind. Excited to keep pushing boundaries and refining my craft! 🌟
+    
+    Before bringing my portfolio to life, I crafted its foundation in Figma! From random scribbles to a polished UI, every detail was planned for a seamless user experience.
+    
+    #UIUX #Figma #Innovative #FirePortfolio🔥#Creative #NextJS #TailwindCSS`,
   imageSrcs: ["google-1.png", "google-2.png", "google-3.png"],
   buttons: [
     {
@@ -33,7 +25,7 @@ export const portfolioPopup: PopupProps = {
     },
     {
       text: "GitHub",
-      icon: "/icons/github-white.png",
+      icon: "/icons/github-software.png",
       link: "https://bonzonic.github/Google-Frontend/", // TODO: Update link
     },
     {
@@ -64,8 +56,7 @@ export const portfolioPopup: PopupProps = {
 
 export const googleFePopup: PopupProps = {
   title: "Google Frontend Clone 🌐",
-  description: `As part of the CS50W course, I built this front-end project, replicating Google Search, Google Image Search, 
-  and Google Advanced Search. The goal was to recreate the UI while improving my skills in HTML, CSS, and JavaScript.
+  description: `As part of the CS50W course, I built this front-end project, replicating Google Search, Google Image Search, and Google Advanced Search. The goal was to recreate the UI while improving my skills in HTML, CSS, and JavaScript.
   Check it out and let me know your thoughts! 👇
 
   #Frontend #CS50W #WebDevelopment #HTML #CSS #JavaScript`,
@@ -78,7 +69,7 @@ export const googleFePopup: PopupProps = {
     },
     {
       text: "GitHub",
-      icon: "/icons/github-white.png",
+      icon: "/icons/github-software.png",
       link: "https://bonzonic.github/Google-Frontend/",
     },
   ],

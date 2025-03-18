@@ -9,13 +9,13 @@ export interface ButtonWithLinkProps {
 
 const ButtonWithLink = ({ items }: { items: ButtonWithLinkProps[] }) => {
   return (
-    <button className="flex flex-row p-2 gap-2 justify-stretch">
+    <button className="flex flex-row p-2 gap-2 justify-stretch w-full">
       {items.map((item, index) => (
         <a
           key={index}
           href={item.link}
           target="_blank"
-          className="flex flex-row items-center p-2 gap-2 w-screen justify-center"
+          className="flex flex-row items-center p-2 gap-2 grow justify-center"
         >
           <Image
             src={item.icon}

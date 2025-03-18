@@ -1,6 +1,9 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { PopupProps } from "../data/popup";
+import { Carousel } from "./carousel";
+import ButtonWithLink from "./button-with-link";
+import { Comment } from "./comment";
 
 const Popup = ({
   popup,
@@ -42,13 +45,37 @@ const Popup = ({
         }
       }}
     >
-      <div className="flex flex-row h-full">
-        <div className="grow-6 bg-black"></div>
-        <div className="grow-7 bg-top-background-white py-4">
-          <div>
-            
+      <div className="h-full flex flex-row">
+        <div className="w-7/13 bg-black">
+          <Carousel imageSrcs={popup.imageSrcs} />
+        </div>
+        <div className="w-6/13 bg-top-background-white py-4">
+          <div className="px-4 mb-10">
+            <div className="flex items-center gap-3">
+              <Image
+                src="/profile-icons/wong-nicholas.png"
+                alt="It's a me, Nicholas!"
+                width={40}
+                height={40}
+              />
+              <p>
+                <b>wong.nicholas_</b>
+              </p>
+            </div>
+            <p className="mt-4">
+              <b>{popup.title}</b>
+            </p>
+            <p className="mt-2 whitespace-pre-line">{popup.description}</p>
           </div>
-
+          <div className="flex-grow border-t border-black opacity-30"></div>
+          <ButtonWithLink items={popup.buttons} />
+          <div className="flex-grow border-t border-black opacity-30"></div>
+          <div className="flex flex-col gap-4 px-4 mt-6">
+            <p>Comments:</p>
+            {popup.comments.map((comment) => (
+              <Comment comment={comment} key={comment.comment} />
+            ))}
+          </div>
         </div>
       </div>
       <button
@@ -58,50 +85,6 @@ const Popup = ({
       >
         <Image src="/component/close.png" alt="Close" width={25} height={25} />
       </button>
-      {/* <div className="flex flex-col gap-4 p-8">
-          <h2>{popup.title}</h2>
-          <p>{popup.description}</p>
-          <div className="flex flex-col gap-4">
-            {popup.imageSrcs.map((imageSrc) => (
-              <img key={"test"} src={`/popup/${imageSrc}`} alt={imageSrc} />
-            ))}
-          </div>
-          <div className="flex flex-row gap-4">
-            {popup.buttons.map((button) => (
-              <a
-                key={"test"}
-                href={button.link}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <button>
-                  <img src={button.icon} alt={button.text} />
-                  {button.text}
-                </button>
-              </a>
-            ))}
-          </div>
-          <div className="flex flex-col gap-4">
-            {popup.comments.map((comment) => (
-              <div key={"test"} className="flex flex-row gap-2">
-                <img src={`/popup/${comment.profileIcon}`} alt={comment.name} />
-                <div>
-                  <p>{comment.comment}</p>
-                  <p>{comment.name}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div> */}
-      {/* {isOpen && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <h2>Popup Title</h2>
-            <p>This is a popup message.</p>
-            <button onClick={togglePopup}>Close Popup</button>
-          </div>
-        </div>
-      )} */}
     </dialog>
   );
 };

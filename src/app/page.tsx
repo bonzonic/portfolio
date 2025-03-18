@@ -9,7 +9,6 @@ import ToolSection from "./sections/tool-section";
 import WorkSection from "./sections/work-section";
 import { ContactSection } from "./sections/contact-section";
 import { PopupContext, usePopup } from "./utils/main";
-import PopupProps from "./components/popup";
 import Popup from "./components/popup";
 
 export default function Home() {

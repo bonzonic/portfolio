@@ -21,7 +21,7 @@ const Work = ({
   return (
     <div className="bg-top-background-white rounded-2xl p-4 flex flex-row gap-[30px] border-neutral-700 border shadow-md">
       <Image
-        className="rounded-2xl w-[240px]"
+        className="rounded-2xl min-w-[240px]"
         src={`/work/${imageSrc}`}
         width={"240"}
         height={"310"}
