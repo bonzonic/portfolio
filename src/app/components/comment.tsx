@@ -10,16 +10,16 @@ export interface Comment {
 
 export const Comment = ({ comment }: { comment: Comment }) => {
   return (
-    <div className="flex justify-start gap-3">
+    <div className="flex items-start gap-3">
       <Image
         src={`/profile-icons/${comment.profileIcon}`}
         alt={`Profile Icon ${comment.profileIcon}`}
         width={40}
         height={40}
       />
-      <div className="mt-1">
+      <div>
         <span>
-          <b>{comment.name}</b>
+          <b>{comment.name} </b>
         </span>
         <span>{comment.comment}</span>
       </div>

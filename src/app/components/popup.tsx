@@ -47,9 +47,10 @@ const Popup = ({
     >
       <div className="h-full flex flex-row">
         <div className="w-7/13 bg-black">
-          <Carousel imageSrcs={popup.imageSrcs} />
+          {/* By putting this validation, React destroys and creates this component everytime */}
+          {isOpen && <Carousel imageSrcs={popup.imageSrcs} />}
         </div>
-        <div className="w-6/13 bg-top-background-white py-4">
+        <div className="w-6/13 bg-top-background-white py-4 overflow-y-auto">
           <div className="px-4 mb-10">
             <div className="flex items-center gap-3">
               <Image

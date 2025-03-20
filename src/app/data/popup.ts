@@ -70,7 +70,7 @@ export const googleFePopup: PopupProps = {
     {
       text: "GitHub",
       icon: "/icons/github-software.png",
-      link: "https://bonzonic.github/Google-Frontend/",
+      link: "https://github.com/bonzonic/Google-Frontend",
     },
   ],
   comments: [
@@ -141,7 +141,7 @@ export const bpPopup: PopupProps = {
   title:
     "Best FYP Award 2023 in Monash University Malaysia, awarded by British Petroleum (BP)",
   description: `Our project utilizes deep learning models such as Faster R-CNN, YoloV8 and MobileNet-V2 to automate the grading of EBN in the manufacturing industry! We also trained the models by incorporating perturbed datasets featuring variations in brightness and bluriness, and included synthetic images to increase the dataset size. Notably, MobileNet-V2 emerged as the optimal choice, striking a balance between speed and accuracy in grading predictions.🚀`,
-  imageSrcs: ["bp1.png", "bp2.png", "bp3.png"],
+  imageSrcs: ["bp.png", "bp2.png", "bp3.png"],
   buttons: [
     {
       text: "Demo",
@@ -231,3 +231,11 @@ export const oWastePopup: PopupProps = {
     },
   ],
 };
+
+export const achievements: PopupProps[] = [
+  paperPopup,
+  bpPopup,
+  klMiniHackPopup,
+  hacktitudePopup,
+  oWastePopup,
+];
