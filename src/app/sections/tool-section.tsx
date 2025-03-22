@@ -16,14 +16,14 @@ const Tool = ({
   tools: ChipProps[];
 }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 text-center md:text-left">
       <div>
         <h6>
           <b>{title}</b>
         </h6>
         <p className="text-xs">{caption}</p>
       </div>
-      <div className="flex flex-row gap-4 flex-wrap">
+      <div className="flex flex-row gap-4 flex-wrap justify-center md:justify-start">
         {tools.map((tool) => (
           <Chip key={tool.icon} icon={tool.icon} name={tool.name} />
         ))}

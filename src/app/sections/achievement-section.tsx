@@ -7,7 +7,7 @@ const AchievementSection = () => {
   const openPopup = useContext(PopupContext);
 
   return (
-    <div className="flex flex-row gap-[86px] flex-wrap justify-center items-center">
+    <div className="flex flex-row gap-x-12 gap-y-4 xl:gap-x-20 flex-wrap justify-center items-center">
       {achievements.map((achievement) => (
         <a
           key={achievement.title}

@@ -16,12 +16,12 @@ export default function Home() {
 
   return (
     <main className="h-auto flex flex-row divide-x line-stroke font-[Inter] bg-[#FAFAFA]">
-      <div className="w-[305px]">
+      <div className="lg:min-w-[225px] xl:min-w-[250px] 2xl:min-w-[305px] lg:visible invisible">
         <NavPanel />
       </div>
       <PopupContext.Provider value={openPopup}>
         <Popup isOpen={isOpen} popup={popupValue} closePopup={closePopup} />
-        <div className="flex flex-col p-12 items-center grow left-[305px]">
+        <div className="flex flex-col p-4 sm:p-12 items-center grow">
           <div className="max-w-[1134px] flex flex-col gap-[86px]">
             <div>
               <Profile />

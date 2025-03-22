@@ -1,60 +1,44 @@
 import Image from "next/image";
 
+interface NavigationLinkProps {
+  iconPath: string;
+  navigationText: string;
+}
+
+const navigationLinks: NavigationLinkProps[] = [
+  { iconPath: "nav-edit.png", navigationText: "Tools" },
+  { iconPath: "nav-favorite.png", navigationText: "Work" },
+  { iconPath: "nav-project.png", navigationText: "Projects" },
+  { iconPath: "nav-achievement.png", navigationText: "Achievements" },
+  { iconPath: "nav-contact.png", navigationText: "Contact" },
+];
+
+const navigationLink = (iconPath: string, navigationText: string) => (
+  <a
+    className="flex items-center lg:gap-4 2xl:gap-6"
+    href={`#${navigationText}`}
+  >
+    <Image
+      className="lg:w-[30px] lg:h-[30px]"
+      src={`/icons/${iconPath}`}
+      width={"30"}
+      height={"30"}
+      alt={`${navigationText} icon`}
+    ></Image>
+    <p className="2xl:text-2xl xl:text-xl lg:text-lg">{navigationText}</p>
+  </a>
+);
+
 export default function NavPanel() {
   return (
     <div className="fixed">
-      <nav className="h-screen w-[305px] flex justify-center">
+      <nav className="h-screen lg:min-w-[225px] xl:min-w-[250px] 2xl:min-w-[305px] flex justify-center">
         <div className="flex-col flex gap-14 justify-center">
-          <a className="flex items-center gap-6" href="#Tools">
-            <Image
-              className="lg:w-[30px] lg:h-[30px]"
-              src="/icons/nav-edit.png"
-              width={"30"}
-              height={"30"}
-              alt={"Pencil icon"}
-            ></Image>
-            <h5>Tools</h5>
-          </a>
-          <a className="flex items-center gap-6" href="#Work">
-            <Image
-              className="lg:w-[30px] lg:h-[30px]"
-              src="/icons/nav-favorite.png"
-              width={"30"}
-              height={"30"}
-              alt={"Pencil icon"}
-            ></Image>
-            <h5>Work</h5>
-          </a>
-          <a className="flex items-center gap-6" href="#Projects">
-            <Image
-              className="lg:w-[30px] lg:h-[30px]"
-              src="/icons/nav-project.png"
-              width={"30"}
-              height={"30"}
-              alt={"Pencil icon"}
-            ></Image>
-            <h5>Projects</h5>
-          </a>
-          <a className="flex items-center gap-6" href="#Achievements">
-            <Image
-              className="lg:w-[30px] lg:h-[30px]"
-              src="/icons/nav-achievement.png"
-              width={"30"}
-              height={"30"}
-              alt={"Pencil icon"}
-            ></Image>
-            <h5>Achievements</h5>
-          </a>
-          <a className="flex items-center gap-6" href="#Contact">
-            <Image
-              className="lg:w-[30px] lg:h-[30px]"
-              src="/icons/nav-contact.png"
-              width={"30"}
-              height={"30"}
-              alt={"Pencil icon"}
-            ></Image>
-            <h5>Contact</h5>
-          </a>
+          {navigationLinks.map((link, index) => (
+            <div key={index}>
+              {navigationLink(link.iconPath, link.navigationText)}
+            </div>
+          ))}
         </div>
       </nav>
       <div className="flex flex-row absolute bottom-12 left-12 gap-4 items-center">

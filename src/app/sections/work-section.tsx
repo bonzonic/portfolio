@@ -19,16 +19,16 @@ const Work = ({
   children,
 }: WorkProps) => {
   return (
-    <div className="bg-top-background-white rounded-2xl p-4 flex flex-row gap-[30px] border-neutral-700 border shadow-md">
+    <div className="bg-top-background-white rounded-2xl p-4 flex flex-row gap-[30px] border-neutral-700 border shadow-md items-center">
       <Image
-        className="rounded-2xl min-w-[240px]"
+        className="rounded-2xl min-w-[240px] hidden xl:block"
         src={`/work/${imageSrc}`}
         width={"240"}
         height={"310"}
         alt={"Handsome picture of Nicholas"}
       ></Image>
       <div className="flex flex-col">
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-col sm:flex-row flex-wrap sm:justify-between">
           <h6>
             <b>{title}</b>
           </h6>
@@ -38,7 +38,7 @@ const Work = ({
         </div>
         <p>{company}</p>
         <div className="mt-3">{children}</div>
-        <div className="flex flex-row gap-4 mt-4">
+        <div className="flex flex-row flex-wrap gap-2 sm:gap-4 mt-4">
           {technologies.map((tech) => (
             <Chip key={tech.name} {...tech}></Chip>
           ))}
