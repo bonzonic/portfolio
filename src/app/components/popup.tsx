@@ -50,7 +50,7 @@ const Popup = ({
           {/* By putting this validation, React destroys and creates this component everytime */}
           {isOpen && <Carousel imageSrcs={popup.imageSrcs} />}
         </div>
-        <div className="h-8/13 lg:w-6/13 lg:h-full w-full bg-top-background-white py-4 overflow-y-auto">
+        <div className="relative h-8/13 lg:w-6/13 lg:h-full w-full bg-top-background-white py-4 overflow-y-auto">
           <div className="px-4 mb-10">
             <div className="flex items-center gap-3">
               <Image
@@ -77,15 +77,20 @@ const Popup = ({
               <Comment comment={comment} key={comment.comment} />
             ))}
           </div>
+          <button
+            className="absolute top-4 right-4 cursor-pointer"
+            onClick={closePopup}
+            aria-label="Close"
+          >
+            <Image
+              src="/component/close.png"
+              alt="Close"
+              width={25}
+              height={25}
+            />
+          </button>
         </div>
       </div>
-      <button
-        className="absolute top-4 right-4 cursor-pointer"
-        onClick={closePopup}
-        aria-label="Close"
-      >
-        <Image src="/component/close.png" alt="Close" width={25} height={25} />
-      </button>
     </dialog>
   );
 };
