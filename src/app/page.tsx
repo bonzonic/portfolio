@@ -13,9 +13,10 @@ import Popup from "./components/popup";
 
 export default function Home() {
   const { isOpen, popupValue, openPopup, closePopup } = usePopup();
+  // const dark = localStorage.getItem("dark") === "true";
 
   return (
-    <main className="h-auto flex flex-row divide-x line-stroke font-[Inter] bg-[#FAFAFA]">
+    <main className="h-auto flex flex-row divide-x divide-black/50 font-[Inter] bg-[#FAFAFA]">
       <div className="lg:min-w-[225px] xl:min-w-[250px] 2xl:min-w-[305px] lg:visible invisible">
         <NavPanel />
       </div>

@@ -42,10 +42,11 @@ export default function NavPanel() {
         </div>
       </nav>
       <div className="flex flex-row absolute bottom-12 left-12 gap-4 items-center">
-        <h6>Dark Mode</h6>
-        <label className="toggle-switch">
-          <input type="checkbox" />
-          <span className="slider"></span>
+        <p className="text-lg xl:text-xl">Dark Mode</p>
+        <label className="relative inline-block w-[50px] h-[24px]">
+          <input type="checkbox" className="opacity-0 w-0 h-0 peer" />
+          <span className="absolute cursor-pointer left-1 top-0.5 bg-white rounded-full h-5 w-5 z-1 transition-transform duration-300 peer-checked:translate-x-[22px]"></span>
+          <span className="absolute cursor-pointer bg-[#F8F5E9] rounded-full w-full h-full peer-checked:bg-[#191F45]" />
         </label>
       </div>
     </div>
