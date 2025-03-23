@@ -5,10 +5,10 @@ export const Carousel = ({ imageSrcs }: { imageSrcs: string[] }) => {
   const [imagePosition, setImagePosition] = useState<number>(0); // starts with 0, like a true engineer
 
   return (
-    <div className="relative flex items-center h-full">
+    <div className="relative flex items-center justify-center h-full">
       {imageSrcs.length > 0 && (
         <Image
-          className="w-full"
+          className="h-full w-auto lg:w-full lg:h-auto"
           src={`/popup/${imageSrcs[imagePosition]}`}
           alt={`${imageSrcs[imagePosition]} Image`}
           width={"600"}

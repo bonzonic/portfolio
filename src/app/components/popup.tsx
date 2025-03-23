@@ -28,7 +28,7 @@ const Popup = ({
 
   return (
     <dialog
-      className="backdrop:bg-black backdrop:opacity-50 backdrop:cursor-pointer h-9/10 w-7/10 m-auto"
+      className="backdrop:bg-black backdrop:opacity-50 backdrop:cursor-pointer h-9/10 w-9/10 xl:w-7/10 m-auto"
       ref={dialog}
       onClick={(e) => {
         if (dialog.current) {
@@ -45,12 +45,12 @@ const Popup = ({
         }
       }}
     >
-      <div className="h-full flex flex-row">
-        <div className="w-7/13 bg-black">
+      <div className="h-full flex flex-col lg:flex-row">
+        <div className="h-5/13 lg:w-7/13 w-full lg:h-full bg-black">
           {/* By putting this validation, React destroys and creates this component everytime */}
           {isOpen && <Carousel imageSrcs={popup.imageSrcs} />}
         </div>
-        <div className="w-6/13 bg-top-background-white py-4 overflow-y-auto">
+        <div className="h-8/13 lg:w-6/13 lg:h-full w-full bg-top-background-white py-4 overflow-y-auto">
           <div className="px-4 mb-10">
             <div className="flex items-center gap-3">
               <Image
