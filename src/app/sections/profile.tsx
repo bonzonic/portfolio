@@ -17,7 +17,7 @@ export default function Profile() {
           <Button
             name="GitHub"
             url="https://github.com/bonzonic"
-            image="/icons/github-white.png"
+            image="/icons/github-dark.png"
           />
           <Button
             name="LinkedIn"

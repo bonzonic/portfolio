@@ -3,7 +3,7 @@ import Image from "next/image";
 import ButtonWithLink, {
   ButtonWithLinkProps,
 } from "../components/button-with-link";
-import { PopupContext } from "../utils/main";
+import { DarkContext, PopupContext } from "../utils/main";
 import { googleFePopup, PopupProps, portfolioPopup } from "../data/popup";
 
 export interface ProjectProps {
@@ -17,15 +17,16 @@ const ImagePartition = ({ images }: { images: string[] }) => {
   return (
     <div className="flex flex-row gap-2 w-0 sm:w-full">
       <Image
-        className="w-1/2"
+        className="w-1/2 rounded-2xl"
         src={`/popup/${images[0]}`}
         width={600}
         height={600}
         alt={`Image ${images[0]}`}
       ></Image>
       {images.length > 1 && (
-        <div className="flex flex-col gap-2 w-1/2">
+        <div className="flex flex-col gap-2 w-1/2 ">
           <Image
+            className="rounded-2xl"
             src={`/popup/${images[1]}`}
             width={600}
             height={600}
@@ -33,6 +34,7 @@ const ImagePartition = ({ images }: { images: string[] }) => {
           ></Image>
           {images.length > 2 && (
             <Image
+              className="rounded-2xl"
               src={`/popup/${images[2]}`}
               width={600}
               height={600}
@@ -55,7 +57,7 @@ const Project = ({
   const openPopup = useContext(PopupContext);
 
   return (
-    <div className="bg-top-background-white rounded-2xl px-4 pt-4 flex flex-col border-neutral-700 border shadow-md cursor-pointer">
+    <div className="bg-top-background-white dark:bg-space-gray rounded-2xl px-4 pt-4 flex flex-col border-neutral-700 border shadow-md cursor-pointer">
       <div
         onClick={() =>
           openPopup({ title, description, imageSrcs, buttons, comments })
@@ -73,10 +75,12 @@ const Project = ({
 };
 
 const ProjectSection = () => {
+  const darkMode = useContext(DarkContext);
+
   return (
     <div className="flex flex-col gap-10">
-      <Project {...portfolioPopup}></Project>
-      <Project {...googleFePopup}></Project>
+      <Project {...portfolioPopup(darkMode)}></Project>
+      <Project {...googleFePopup(darkMode)}></Project>
     </div>
   );
 };

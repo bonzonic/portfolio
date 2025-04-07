@@ -19,7 +19,7 @@ const Work = ({
   children,
 }: WorkProps) => {
   return (
-    <div className="bg-top-background-white rounded-2xl p-4 flex flex-row gap-[30px] border-neutral-700 border shadow-md items-center">
+    <div className="bg-top-background-white dark:bg-space-gray rounded-2xl p-4 flex flex-row gap-[30px] border-neutral-700 border shadow-md items-center">
       <Image
         className="rounded-2xl min-w-[240px] hidden xl:block"
         src={`/work/${imageSrc}`}

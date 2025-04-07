@@ -12,6 +12,9 @@
 
 @theme {
     --color-top-background-white: #FCFAFA;
+    --color-background-dark: #09122C;
+    --color-space-gray: #191F45;
+    --color-dark-purple: #423172;
 }
 
 h1 {

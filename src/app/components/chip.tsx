@@ -6,12 +6,12 @@ export interface ChipProps {
 }
 
 export default function Chip({ icon, name }: ChipProps) {
-  const textColor = icon ? "black" : "text-[#4D4D4D]";
-
   return (
     <div
-      className={`flex items-center flex-row border-black border-1 rounded-3xl gap-2 ${
-        icon ? "bg-top-background-white w-[145px] p-2" : "bg-white py-1 px-3"
+      className={`flex items-center flex-row border-black border-1 dark:border-none rounded-3xl gap-2 ${
+        icon
+          ? "bg-top-background-white dark:bg-space-gray w-[145px] p-2"
+          : "bg-white py-1 px-3 dark:bg-dark-purple text-[#4D4D4D] dark:text-white"
       }`}
     >
       {icon ? (
@@ -24,7 +24,7 @@ export default function Chip({ icon, name }: ChipProps) {
         ></Image>
       ) : null}
 
-      <p className={`${textColor}`}>{name}</p>
+      <p>{name}</p>
     </div>
   );
 }

@@ -15,7 +15,7 @@ export const ContactSection = () => {
             target="_blank"
           >
             <Image
-              src={"/icons/github-white.png"}
+              src={"/icons/github-dark.png"}
               alt={`GitHub Icon`}
               width={"20"}
               height={"20"}

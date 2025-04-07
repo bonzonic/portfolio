@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
 import Image from "next/image";
-import { PopupContext } from "../utils/main";
+import { DarkContext, PopupContext } from "../utils/main";
 import { achievements } from "../data/popup";
 
 const AchievementSection = () => {
   const openPopup = useContext(PopupContext);
+  const darkMode = useContext(DarkContext);
 
   return (
     <div className="flex flex-row gap-x-12 gap-y-4 xl:gap-x-20 flex-wrap justify-center items-center">
-      {achievements.map((achievement) => (
+      {achievements(darkMode).map((achievement) => (
         <a
           key={achievement.title}
           className="w-[264px] flex flex-col items-center cursor-pointer"

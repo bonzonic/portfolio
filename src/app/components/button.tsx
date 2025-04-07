@@ -23,7 +23,7 @@ export default function Button({
       onClick={onClick}
     >
       <div
-        className={`bg-[#4D7DFF] hover:bg-blue-500 flex flex-row gap-1.5 py-1 px-3 text-neutral-50 rounded-lg items-center`}
+        className={`bg-[#4D7DFF] hover:bg-blue-500 flex flex-row gap-1.5 py-1 px-3 text-neutral-50 rounded-lg items-center dark:bg-dark-purple dark:hover:bg-purple-700`}
       >
         {image ? (
           <Image
