@@ -1,11 +1,6 @@
-@tailwind base;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -15,16 +10,33 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@theme {
+    --color-top-background-white: #FCFAFA;
+    --color-background-dark: #09122C;
+    --color-space-gray: #191F45;
+    --color-dark-purple: #423172;
 }
 
-.card {
-  @apply bg-white p-4 rounded-2xl shadow-md;
+h1 {
+  font-size: 47.8px;
+}
+
+h2 {
+  font-size: 39.8px;
+}
+
+h3 {
+  font-size: 33.2px;
+}
+
+h4 {
+  font-size: 27.6px;
+}
+
+h5 {
+  font-size: 23px;
+}
+
+h6 {
+  font-size: 19.2px;
 }
