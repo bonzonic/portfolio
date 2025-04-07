@@ -38,7 +38,7 @@ export const portfolioPopup = (darkMode: boolean): PopupProps => {
       {
         text: "Figma",
         icon: "/icons/figma-white.png",
-        link: "https://www.figma.com/proto/nNBqTRyRPBhmFMMRGLoymj/Untitled?page-id=32%3A124&node-id=322-1320&p=f&viewport=1426%2C-496%2C0.46&t=9IxZppgoKKcaF56T-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=322%3A1320&show-proto-sidebar=1", // TODO: Update link
+        link: "https://www.figma.com/proto/nNBqTRyRPBhmFMMRGLoymj/Untitled?page-id=32%3A124&node-id=322-1320&p=f&viewport=1426%2C-496%2C0.46&t=9IxZppgoKKcaF56T-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=322%3A1320&show-proto-sidebar=1",
       },
     ],
     comments: [
