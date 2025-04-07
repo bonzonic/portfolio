@@ -23,22 +23,22 @@ export const portfolioPopup = (darkMode: boolean): PopupProps => {
     Before bringing my portfolio to life, I crafted its foundation in Figma! From random scribbles to a polished UI, every detail was planned for a seamless user experience.
     
     #UIUX #Figma #Innovative #FirePortfolio🔥#Creative #NextJS #TailwindCSS`,
-    imageSrcs: ["google-1.png", "google-2.png", "google-3.png"],
+    imageSrcs: ["portfolio.png", "portfolio2.png"],
     buttons: [
       {
         text: "Demo",
         icon: linkArrowSrc(darkMode),
-        link: "https://bonzonic.github.io/Google-Frontend/", // TODO: Update link
+        link: "https://portfolio-steel-eta-78.vercel.app/",
       },
       {
         text: "GitHub",
         icon: githubSrc(darkMode),
-        link: "https://bonzonic.github/Google-Frontend/", // TODO: Update link
+        link: "https://github.com/bonzonic/portfolio",
       },
       {
         text: "Figma",
         icon: "/icons/figma-white.png",
-        link: "https://bonzonic.github/Google-Frontend/", // TODO: Update link
+        link: "https://www.figma.com/proto/nNBqTRyRPBhmFMMRGLoymj/Untitled?page-id=32%3A124&node-id=322-1320&p=f&viewport=1426%2C-496%2C0.46&t=9IxZppgoKKcaF56T-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=322%3A1320&show-proto-sidebar=1", // TODO: Update link
       },
     ],
     comments: [
@@ -157,12 +157,7 @@ export const bpPopup = (darkMode: boolean): PopupProps => {
     imageSrcs: ["bp.png", "bp2.png", "bp3.png"],
     buttons: [
       {
-        text: "Demo",
-        icon: linkArrowSrc(darkMode),
-        link: "https://dl.acm.org/doi/10.1145/3611380.3629545", // TODO: Update link
-      },
-      {
-        text: "Demo",
+        text: "Github",
         icon: githubSrc(darkMode),
         link: "https://github.com/MCS04/MCS04-AI",
       },
