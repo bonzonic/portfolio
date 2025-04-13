@@ -37,8 +37,11 @@ export default function Profile() {
         <p className="order-3">
           2 years of experience in full-stack development that loves challenges
           and algorithms! Skilled in building responsive UIs with comprehensive
-          unit tests, and specializes in React with TypeScript. Currently on the
-          Get Certified Program for Associate Cloud Engineer by Google Cloud!
+          unit tests, and specializes in React with TypeScript and does back-end
+          occasionally. Collaborates effectively in team environments and
+          demonstrates strong leadership by taking committee roles in the club
+          and company. Currently on the Get Certified Program for Associate
+          Cloud Engineer by Google Cloud!
         </p>
       </div>
     </section>

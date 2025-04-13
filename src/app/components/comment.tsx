@@ -12,6 +12,7 @@ export const Comment = ({ comment }: { comment: Comment }) => {
   return (
     <div className="flex items-start gap-3">
       <Image
+        className="shrink-0"
         src={`/profile-icons/${comment.profileIcon}`}
         alt={`Profile Icon ${comment.profileIcon}`}
         width={40}
