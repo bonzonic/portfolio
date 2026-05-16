@@ -10,7 +10,7 @@ export interface ChipProps {
 export default function Chip({ icon, darkIcon, name, delay }: ChipProps) {
   return (
     <div
-      className={`flex items-center flex-row border-black border-1 dark:border-none rounded-3xl gap-2 ${
+      className={`flex items-center flex-row border-1 border-black dark:border-transparent rounded-3xl gap-2 ${
         icon
           ? "bg-top-background-white dark:bg-space-gray w-[145px] p-2"
           : "bg-white py-1 px-3 dark:bg-dark-purple text-[#4D4D4D] dark:text-white"
