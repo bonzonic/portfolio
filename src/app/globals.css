@@ -17,6 +17,31 @@
     --color-dark-purple: #423172;
 }
 
+@keyframes chipEntry {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  main,
+  main * {
+    transition-property: background-color, color, border-color, fill, opacity;
+    transition-duration: 400ms;
+    transition-timing-function: ease;
+  }
+
+  main.no-transition,
+  main.no-transition * {
+    transition: none !important;
+  }
+}
+
 h1 {
   font-size: 47.8px;
 }

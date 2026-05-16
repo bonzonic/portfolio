@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Image from "next/image";
 import Chip, { ChipProps } from "../components/chip";
 
@@ -139,4 +140,4 @@ const WorkSection = () => (
   </>
 );
 
-export default WorkSection;
+export default memo(WorkSection);

@@ -44,7 +44,7 @@ const Popup = ({
         currentDialog.removeEventListener("cancel", handleCancel);
       }
     };
-  }, []);
+  }, [closePopup]);
 
   return (
     // Border-0 since natively it has a white border

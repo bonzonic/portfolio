@@ -1,6 +1,7 @@
+import { memo } from "react";
 import Image from "next/image";
 
-export const ContactSection = () => {
+const ContactSection = memo(function ContactSection() {
   return (
     <div className="flex flex-col gap-10 items-center  text-center">
       <p className="text-3xl md:text-4xl text-transparent bg-clip-text bg-linear-to-r from-[#FDBA66] to-[#FD6D71]">
@@ -57,4 +58,6 @@ export const ContactSection = () => {
       </div>
     </div>
   );
-};
+});
+
+export { ContactSection };
