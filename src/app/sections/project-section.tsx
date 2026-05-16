@@ -57,7 +57,7 @@ const Project = ({
   const openPopup = useContext(PopupContext);
 
   return (
-    <div className="bg-top-background-white dark:bg-space-gray rounded-2xl px-4 pt-4 flex flex-col border-neutral-700 border shadow-md cursor-pointer">
+    <div className="bg-top-background-white dark:bg-space-gray rounded-2xl px-4 pt-4 flex flex-col border-neutral-700 border shadow-md cursor-pointer hover:scale-[1.02] hover:shadow-xl transition-transform duration-200">
       <div
         onClick={() =>
           openPopup({ title, description, imageSrcs, buttons, comments })
