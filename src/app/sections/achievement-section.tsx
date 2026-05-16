@@ -12,7 +12,7 @@ const AchievementSection = () => {
       {achievements(darkMode).map((achievement) => (
         <a
           key={achievement.title}
-          className="w-[264px] flex flex-col items-center cursor-pointer"
+          className="w-[264px] flex flex-col items-center cursor-pointer hover:scale-[1.02] transition-transform duration-200"
           onClick={() => openPopup(achievement)}
         >
           <div className="w-[264px] h-[264px] flex items-center">
