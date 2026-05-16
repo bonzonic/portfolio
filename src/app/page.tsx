@@ -5,6 +5,7 @@ import NavPanel from "./components/nav-panel";
 import Profile from "./sections/profile";
 import ProjectSection from "./sections/project-section";
 import SectionBreak from "./components/section-break";
+import ScrollReveal from "./components/scroll-reveal";
 import ToolSection from "./sections/tool-section";
 import WorkSection from "./sections/work-section";
 import { ContactSection } from "./sections/contact-section";
@@ -43,18 +44,26 @@ const Home = dynamic(
                       <ToolSection />
                     </SectionBreak>
                   </div>
-                  <SectionBreak text={"Work"}>
-                    <WorkSection />
-                  </SectionBreak>
-                  <SectionBreak text={"Projects"}>
-                    <ProjectSection />
-                  </SectionBreak>
-                  <SectionBreak text={"Achievements"}>
-                    <AchievementSection />
-                  </SectionBreak>
-                  <SectionBreak text={"Contact"}>
-                    <ContactSection />
-                  </SectionBreak>
+                  <ScrollReveal>
+                    <SectionBreak text={"Work"}>
+                      <WorkSection />
+                    </SectionBreak>
+                  </ScrollReveal>
+                  <ScrollReveal>
+                    <SectionBreak text={"Projects"}>
+                      <ProjectSection />
+                    </SectionBreak>
+                  </ScrollReveal>
+                  <ScrollReveal>
+                    <SectionBreak text={"Achievements"}>
+                      <AchievementSection />
+                    </SectionBreak>
+                  </ScrollReveal>
+                  <ScrollReveal>
+                    <SectionBreak text={"Contact"}>
+                      <ContactSection />
+                    </SectionBreak>
+                  </ScrollReveal>
                 </div>
               </div>
             </PopupContext.Provider>

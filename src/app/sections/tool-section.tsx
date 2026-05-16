@@ -1,5 +1,6 @@
 import { memo, useEffect, useRef, useState } from "react";
 import Chip, { ChipProps } from "../components/chip";
+import ScrollReveal from "../components/scroll-reveal";
 import {
   softwareTools,
   frontendTools,
@@ -57,7 +58,7 @@ const ToolSection = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -65,34 +66,42 @@ const ToolSection = () => {
 
   return (
     <div ref={ref} className="flex flex-col gap-6">
-      <Tool
-        title="Software"
-        tools={softwareTools}
-        caption="Trusty tools that I build software with"
-        startIndex={0}
-        visible={visible}
-      />
-      <Tool
-        title="Frontend"
-        tools={frontendTools}
-        caption="Can't build a website without these tools"
-        startIndex={4}
-        visible={visible}
-      />
-      <Tool
-        title="Backend"
-        tools={backendTools}
-        caption="The magic behind the scenes"
-        startIndex={14}
-        visible={visible}
-      />
-      <Tool
-        title="Other Tech"
-        tools={otherTechTools}
-        caption="Where I dabble in other technologies"
-        startIndex={19}
-        visible={visible}
-      />
+      <ScrollReveal delay={0}>
+        <Tool
+          title="Software"
+          tools={softwareTools}
+          caption="Trusty tools that I build software with"
+          startIndex={0}
+          visible={visible}
+        />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <Tool
+          title="Frontend"
+          tools={frontendTools}
+          caption="Can't build a website without these tools"
+          startIndex={4}
+          visible={visible}
+        />
+      </ScrollReveal>
+      <ScrollReveal delay={200}>
+        <Tool
+          title="Backend"
+          tools={backendTools}
+          caption="The magic behind the scenes"
+          startIndex={14}
+          visible={visible}
+        />
+      </ScrollReveal>
+      <ScrollReveal delay={300}>
+        <Tool
+          title="Other Tech"
+          tools={otherTechTools}
+          caption="Where I dabble in other technologies"
+          startIndex={19}
+          visible={visible}
+        />
+      </ScrollReveal>
     </div>
   );
 };

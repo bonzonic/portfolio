@@ -3,6 +3,7 @@ import Image from "next/image";
 import ButtonWithLink, {
   ButtonWithLinkProps,
 } from "../components/button-with-link";
+import ScrollReveal from "../components/scroll-reveal";
 import { DarkContext, PopupContext } from "../utils/main";
 import { googleFePopup, PopupProps, portfolioPopup } from "../data/popup";
 
@@ -79,8 +80,12 @@ const ProjectSection = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <Project {...portfolioPopup(darkMode)}></Project>
-      <Project {...googleFePopup(darkMode)}></Project>
+      <ScrollReveal delay={500}>
+        <Project {...portfolioPopup(darkMode)}></Project>
+      </ScrollReveal>
+      <ScrollReveal delay={600}>
+        <Project {...googleFePopup(darkMode)}></Project>
+      </ScrollReveal>
     </div>
   );
 };
