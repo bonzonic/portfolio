@@ -1,7 +1,23 @@
+import { memo, useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "../components/button";
 
-export default function Profile() {
+const DESCRIPTION =
+  "Full-stack developer with 3 years of experience building and shipping products in fast-paced environments. Experienced in developing end-to-end systems, from CRUD applications to high-performance, real-time platforms. Specializes in React, TypeScript, Vue, and WebGL, with a focus on low-latency, data-intensive systems. Leverages AI-assisted workflows to rapidly deliver scalable, production-ready applications.";
+
+const Profile = () => {
+  const [displayed, setDisplayed] = useState("");
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (index >= DESCRIPTION.length) return;
+    const t = setTimeout(() => {
+      setDisplayed(DESCRIPTION.slice(0, index + 1));
+      setIndex((i) => i + 1);
+    }, 12);
+    return () => clearTimeout(t);
+  }, [index]);
+
   return (
     <section className="flex flex-col md:flex-row gap-10 mb-10 items-center">
       <Image
@@ -35,15 +51,12 @@ export default function Profile() {
           <b>Wong Nicholas</b>
         </p>
         <p className="order-3">
-          2 years of experience in full-stack development that loves challenges
-          and algorithms! Skilled in building responsive UIs with comprehensive
-          unit tests, and specializes in React with TypeScript and does back-end
-          occasionally. Collaborates effectively in team environments and
-          demonstrates strong leadership by taking committee roles in the club
-          and company. Currently on the Get Certified Program for Associate
-          Cloud Engineer by Google Cloud!
+          {displayed}
+          {index < DESCRIPTION.length && <span className="animate-pulse">_</span>}
         </p>
       </div>
     </section>
   );
-}
+};
+
+export default memo(Profile);

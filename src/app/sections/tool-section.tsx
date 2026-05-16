@@ -1,22 +1,24 @@
-import { useContext } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import Chip, { ChipProps } from "../components/chip";
 import {
   softwareTools,
   frontendTools,
   backendTools,
   otherTechTools,
-  darkSoftwareTools,
 } from "../data/tool";
-import { DarkContext } from "../utils/main";
 
 const Tool = ({
   title,
   caption,
   tools,
+  startIndex,
+  visible,
 }: {
   title: string;
   caption: string;
   tools: ChipProps[];
+  startIndex: number;
+  visible: boolean;
 }) => {
   return (
     <div className="flex flex-col gap-2 text-center md:text-left">
@@ -27,8 +29,14 @@ const Tool = ({
         <p className="text-xs">{caption}</p>
       </div>
       <div className="flex flex-row gap-4 flex-wrap justify-center md:justify-start">
-        {tools.map((tool) => (
-          <Chip key={tool.icon} icon={tool.icon} name={tool.name} />
+        {tools.map((tool, i) => (
+          <Chip
+            key={tool.icon}
+            icon={tool.icon}
+            darkIcon={tool.darkIcon}
+            name={tool.name}
+            delay={visible ? (startIndex + i) * 60 : undefined}
+          />
         ))}
       </div>
     </div>
@@ -36,32 +44,57 @@ const Tool = ({
 };
 
 const ToolSection = () => {
-  const darkMode = useContext(DarkContext);
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div ref={ref} className="flex flex-col gap-6">
       <Tool
         title="Software"
-        tools={darkMode ? darkSoftwareTools : softwareTools}
+        tools={softwareTools}
         caption="Trusty tools that I build software with"
-      ></Tool>
+        startIndex={0}
+        visible={visible}
+      />
       <Tool
         title="Frontend"
         tools={frontendTools}
         caption="Can't build a website without these tools"
-      ></Tool>
+        startIndex={4}
+        visible={visible}
+      />
       <Tool
         title="Backend"
         tools={backendTools}
         caption="The magic behind the scenes"
-      ></Tool>
+        startIndex={14}
+        visible={visible}
+      />
       <Tool
         title="Other Tech"
         tools={otherTechTools}
         caption="Where I dabble in other technologies"
-      ></Tool>
+        startIndex={19}
+        visible={visible}
+      />
     </div>
   );
 };
 
-export default ToolSection;
+export default memo(ToolSection);

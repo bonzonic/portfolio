@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 import { PopupProps } from "../data/popup";
 import { useEffect } from "react";
 
@@ -17,14 +17,14 @@ export const usePopup = (): {
     comments: [],
   });
 
-  const openPopup = (popupValue: PopupProps) => {
+  const openPopup = useCallback((popupValue: PopupProps) => {
     setIsOpen(true);
     setPopupValue(popupValue);
-  };
+  }, []);
 
-  const closePopup = () => {
+  const closePopup = useCallback(() => {
     setIsOpen(false);
-  };
+  }, []);
 
   return {
     isOpen,
@@ -38,20 +38,15 @@ export const PopupContext = createContext<(popup: PopupProps) => void>(
   () => undefined
 );
 
-/**
- * Use dark mode hook
- * @returns {boolean} darkMode
- */
-export default function useDarkMode(): boolean {
-  /**
-   * Check if dark mode is enabled
-   * @returns {boolean}
-   */
+export default function useDarkMode(): { darkMode: boolean; isInitializing: boolean } {
   const isDarkMode = (): boolean => localStorage.getItem("darkMode") === "true";
 
   const [darkMode, setDarkMode] = useState(isDarkMode());
+  const [isInitializing, setIsInitializing] = useState(true);
 
   useEffect(() => {
+    setIsInitializing(false);
+
     const handleChangeStorage = () => {
       setDarkMode(isDarkMode);
     };
@@ -60,7 +55,7 @@ export default function useDarkMode(): boolean {
     return () => window.removeEventListener("storage", handleChangeStorage);
   }, []);
 
-  return darkMode;
+  return { darkMode, isInitializing };
 }
 
 export const DarkContext = createContext<boolean>(false);

@@ -19,14 +19,12 @@ const Home = dynamic(
   async () => {
     const Home = () => {
       const { isOpen, popupValue, openPopup, closePopup } = usePopup();
-      const darkMode = useDarkMode();
+      const { darkMode, isInitializing } = useDarkMode();
 
       return (
         <DarkContext.Provider value={darkMode}>
           <main
-            className={`${
-              darkMode ? "dark" : ""
-            } h-auto flex flex-row divide-x dark:divide-white/70 divide-black/50 font-[Inter] bg-[#FAFAFA] dark:text-white dark:bg-background-dark`}
+            className={`${darkMode ? "dark" : ""} ${isInitializing ? "no-transition" : ""} h-auto flex flex-row divide-x dark:divide-white/70 divide-black/50 font-[Inter] bg-[#FAFAFA] dark:text-white dark:bg-background-dark`}
           >
             <div className="lg:min-w-[225px] xl:min-w-[250px] 2xl:min-w-[305px] lg:visible invisible">
               <NavPanel />

@@ -13,6 +13,7 @@ export const softwareTools: ChipProps[] = [
   },
   {
     icon: `${iconPath}github.png`,
+    darkIcon: `${iconPath}github-dark.png`,
     name: "GitHub",
   },
   {
@@ -102,12 +103,3 @@ export const otherTechTools: ChipProps[] = [
   },
 ];
 
-export const darkSoftwareTools: ChipProps[] = [
-  softwareTools[0],
-  softwareTools[1],
-  {
-    icon: `${iconPath}github-dark.png`,
-    name: "GitHub",
-  },
-  softwareTools[3],
-];
