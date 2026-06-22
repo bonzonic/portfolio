@@ -1,10 +1,63 @@
-import React, { useContext, useEffect, useLayoutEffect, useRef } from "react";
+import React, { useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { PopupProps } from "../data/popup";
+import type { Comment } from "./comment";
 import { Carousel } from "./carousel";
 import ButtonWithLink from "./button-with-link";
-import { Comment } from "./comment";
 import { DarkContext } from "../utils/main";
+
+const CLOSE_DURATION = 220;
+const TYPING_SPEED_MS = 8;
+const FIRST_COMMENT_DELAY_MS = 600;
+const BETWEEN_COMMENT_DELAY_MS = 400;
+
+const TypedComment = ({
+  comment,
+  onDone,
+}: {
+  comment: Comment;
+  onDone: () => void;
+}) => {
+  const [typedText, setTypedText] = useState("");
+  const onDoneRef = useRef(onDone);
+  onDoneRef.current = onDone;
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      index++;
+      setTypedText(comment.comment.slice(0, index));
+      if (index >= comment.comment.length) {
+        clearInterval(interval);
+        onDoneRef.current();
+      }
+    }, TYPING_SPEED_MS);
+    return () => clearInterval(interval);
+  }, [comment.comment]);
+
+  const isDone = typedText.length >= comment.comment.length;
+
+  return (
+    <div className="flex items-start gap-3 comment-appear">
+      <Image
+        className="shrink-0"
+        src={`/profile-icons/${comment.profileIcon}`}
+        alt={`Profile icon of ${comment.name}`}
+        width={40}
+        height={40}
+      />
+      <div>
+        <span>
+          <b>{comment.name} </b>
+        </span>
+        <span>
+          {typedText}
+          {!isDone && <span className="typing-cursor">|</span>}
+        </span>
+      </div>
+    </div>
+  );
+};
 
 const Popup = ({
   popup,
@@ -16,59 +69,74 @@ const Popup = ({
   closePopup: () => void;
 }) => {
   const dialog = useRef<HTMLDialogElement>(null);
+  const [isClosing, setIsClosing] = useState(false);
+  const [visibleComments, setVisibleComments] = useState(0);
   const darkMode = useContext(DarkContext);
 
+  const handleClose = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => {
+      dialog.current?.close();
+      setIsClosing(false);
+      closePopup();
+    }, CLOSE_DURATION);
+  }, [closePopup]);
+
+  // Open dialog
   useLayoutEffect(() => {
-    if (dialog.current) {
-      if (isOpen) {
-        dialog.current.showModal();
-      } else {
-        dialog.current.close();
-      }
+    if (isOpen) {
+      dialog.current?.showModal();
     }
   }, [isOpen]);
 
+  // Reset and start comment chain when popup opens/closes
   useEffect(() => {
-    const handleCancel = (e: Event) => {
-      e.preventDefault(); // Prevent ESC from closing the dialog
-      closePopup(); // Call the closePopup function
-    };
-
-    const currentDialog = dialog.current;
-    if (currentDialog) {
-      currentDialog.addEventListener("cancel", handleCancel);
+    if (!isOpen) {
+      setVisibleComments(0);
+      return;
     }
+    if (popup.comments.length === 0) return;
+    const timer = setTimeout(() => setVisibleComments(1), FIRST_COMMENT_DELAY_MS);
+    return () => clearTimeout(timer);
+  }, [isOpen, popup.comments.length]);
 
-    return () => {
-      if (currentDialog) {
-        currentDialog.removeEventListener("cancel", handleCancel);
-      }
+  // Advance to next comment after current one finishes typing
+  const handleCommentDone = useCallback(() => {
+    const timer = setTimeout(() => {
+      setVisibleComments((v) => (v < popup.comments.length ? v + 1 : v));
+    }, BETWEEN_COMMENT_DELAY_MS);
+    return () => clearTimeout(timer);
+  }, [popup.comments.length]);
+
+  // ESC key
+  useEffect(() => {
+    const el = dialog.current;
+    const handleCancel = (e: Event) => {
+      e.preventDefault();
+      handleClose();
     };
-  }, [closePopup]);
+    el?.addEventListener("cancel", handleCancel);
+    return () => el?.removeEventListener("cancel", handleCancel);
+  }, [handleClose]);
 
   return (
-    // Border-0 since natively it has a white border
     <dialog
-      className="backdrop:bg-black backdrop:opacity-50 backdrop:cursor-pointer h-9/10 w-9/10 xl:w-7/10 m-auto border-0"
+      className={`backdrop:bg-black backdrop:opacity-50 backdrop:cursor-pointer h-9/10 w-9/10 xl:w-7/10 m-auto border-0${isClosing ? " popup-closing" : ""}`}
       ref={dialog}
       onClick={(e) => {
         if (dialog.current) {
-          // Check if the click is outside the dialog
           const rect = dialog.current.getBoundingClientRect();
           const isInDialog =
             rect.top <= e.clientY &&
             e.clientY <= rect.top + rect.height &&
             rect.left <= e.clientX &&
             e.clientX <= rect.left + rect.width;
-          if (!isInDialog) {
-            closePopup();
-          }
+          if (!isInDialog) handleClose();
         }
       }}
     >
       <div className="h-full flex flex-col lg:flex-row">
         <div className="h-5/13 lg:w-7/13 w-full lg:h-full bg-black">
-          {/* By putting this validation, React destroys and creates this component everytime */}
           {isOpen && <Carousel imageSrcs={popup.imageSrcs} />}
         </div>
         <div className="relative h-8/13 lg:w-6/13 lg:h-full w-full bg-top-background-white dark:bg-space-gray py-4 overflow-y-auto dark:text-white">
@@ -94,13 +162,17 @@ const Popup = ({
           <div className="flex-grow border-t border-black opacity-30 dark:border-white dark:opacity-70"></div>
           <div className="flex flex-col gap-4 px-4 mt-6">
             <p>Comments:</p>
-            {popup.comments.map((comment) => (
-              <Comment comment={comment} key={comment.comment} />
+            {popup.comments.slice(0, visibleComments).map((comment) => (
+              <TypedComment
+                key={comment.comment}
+                comment={comment}
+                onDone={handleCommentDone}
+              />
             ))}
           </div>
           <button
             className="absolute top-4 right-4 cursor-pointer"
-            onClick={closePopup}
+            onClick={handleClose}
             aria-label="Close"
           >
             <Image

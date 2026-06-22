@@ -5,10 +5,11 @@ export interface ChipProps {
   darkIcon?: string;
   name: string;
   delay?: number;
+  link?: string;
 }
 
-export default function Chip({ icon, darkIcon, name, delay }: ChipProps) {
-  return (
+export default function Chip({ icon, darkIcon, name, delay, link }: ChipProps) {
+  const inner = (
     <div
       className={`flex items-center flex-row border-1 border-black dark:border-transparent rounded-3xl gap-2 ${
         icon
@@ -39,6 +40,21 @@ export default function Chip({ icon, darkIcon, name, delay }: ChipProps) {
       ) : null}
 
       <p>{name}</p>
+      {link && (
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden className="shrink-0 opacity-60">
+          <path d="M2 9L9 2M9 2H5M9 2V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      )}
     </div>
   );
+
+  if (link) {
+    return (
+      <a href={link} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 hover:ring-1 hover:ring-black/20 dark:hover:ring-white/20 rounded-3xl transition-all">
+        {inner}
+      </a>
+    );
+  }
+
+  return inner;
 }

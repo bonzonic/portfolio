@@ -5,7 +5,7 @@ import ButtonWithLink, {
 } from "../components/button-with-link";
 import ScrollReveal from "../components/scroll-reveal";
 import { DarkContext, PopupContext } from "../utils/main";
-import { googleFePopup, PopupProps, portfolioPopup } from "../data/popup";
+import { PopupProps, portfolioPopup } from "../data/popup";
 
 export interface ProjectProps {
   title: string;
@@ -82,9 +82,6 @@ const ProjectSection = () => {
     <div className="flex flex-col gap-10">
       <ScrollReveal delay={500}>
         <Project {...portfolioPopup(darkMode)}></Project>
-      </ScrollReveal>
-      <ScrollReveal delay={600}>
-        <Project {...googleFePopup(darkMode)}></Project>
       </ScrollReveal>
     </div>
   );

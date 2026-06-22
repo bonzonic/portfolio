@@ -105,7 +105,10 @@ export const paperPopup = (darkMode: boolean): PopupProps => {
       "Published paper: Preprocessing Variations for Classification in Smart Manufacturing ",
     description: `Collaborating with my other FYP teammates in university, I managed to publish a paper with the title above to the Association for Computing Machinery (ACM). Our paper investigates the impact of preprocessing techniques, including brightness and blurriness adjustments, on the performance of deep learning model when dealing with low-quality visual data (edible bird nest) commonly encountered in industrial settings.
 
-Key Highlights:➊ Successful development of AI prototype for grading Edible Bird's Nest.➋ Potential automation for quality control of Edible Bird's Nest.➌ Utilization of generative AI to create images for training the model.`,
+Key Highlights:
+➊ Successful development of AI prototype for grading Edible Bird's Nest.
+➋ Potential automation for quality control of Edible Bird's Nest.
+➌ Utilization of generative AI to create images for training the model.`,
     imageSrcs: ["paper.png"],
     buttons: [
       {

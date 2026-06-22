@@ -32,12 +32,8 @@ export const frontendTools: ChipProps[] = [
     name: "CSS",
   },
   {
-    icon: `${iconPath}tailwind-white.png`,
-    name: "Tailwind",
-  },
-  {
-    icon: `${iconPath}bootstrap-white.png`,
-    name: "Bootstrap",
+    icon: `${iconPath}vue.png`,
+    name: "Vue",
   },
   {
     icon: `${iconPath}sass-white.png`,
@@ -94,12 +90,17 @@ export const otherTechTools: ChipProps[] = [
     name: "Python",
   },
   {
-    icon: `${iconPath}c-white.png`,
-    name: "C",
+    icon: `${iconPath}claude-ai.svg`,
+    name: "Claude Code",
   },
   {
-    icon: `${iconPath}tensorflow-white.png`,
-    name: "TensorFlow",
+    icon: `${iconPath}aws.svg`,
+    name: "AWS SAA",
+    link: "https://www.credly.com/badges/6c7dff51-8f3a-4772-93be-96664d0c87d1",
+  },
+  {
+    icon: `${iconPath}gcp.png`,
+    name: "GCP ACE",
+    link: "https://www.credly.com/badges/61b6945c-babf-45d4-898c-cc98a96099c0",
   },
 ];
-

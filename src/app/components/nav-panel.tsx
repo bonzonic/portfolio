@@ -1,3 +1,5 @@
+"use client";
+
 import { memo } from "react";
 import Image from "next/image";
 
@@ -16,10 +18,16 @@ const navigationLinks: NavigationLinkProps[] = [
 
 const NavigationLink = memo(
   ({ iconPath, navigationText }: NavigationLinkProps) => {
+    const handleClick = (e: React.MouseEvent) => {
+      e.preventDefault();
+      document.getElementById(navigationText)?.scrollIntoView({ behavior: "smooth" });
+    };
+
     return (
       <a
         className="flex items-center lg:gap-4 2xl:gap-6"
         href={`#${navigationText}`}
+        onClick={handleClick}
       >
         <div className="relative lg:w-[30px] lg:h-[30px] w-[30px] h-[30px]">
           <Image

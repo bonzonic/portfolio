@@ -32,10 +32,11 @@ const Tool = ({
       <div className="flex flex-row gap-4 flex-wrap justify-center md:justify-start">
         {tools.map((tool, i) => (
           <Chip
-            key={tool.icon}
+            key={tool.name}
             icon={tool.icon}
             darkIcon={tool.darkIcon}
             name={tool.name}
+            link={tool.link}
             delay={visible ? (startIndex + i) * 60 : undefined}
           />
         ))}
