@@ -28,7 +28,7 @@ export const portfolioPopup = (darkMode: boolean): PopupProps => {
       {
         text: "Demo",
         icon: linkArrowSrc(darkMode),
-        link: "https://portfolio-steel-eta-78.vercel.app/",
+        link: "https://wongnicholas.vercel.app/",
       },
       {
         text: "GitHub",
