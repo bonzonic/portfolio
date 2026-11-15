@@ -5,7 +5,7 @@ import ButtonWithLink, {
 } from "../components/button-with-link";
 import ScrollReveal from "../components/scroll-reveal";
 import { DarkContext, PopupContext } from "../utils/main";
-import { PopupProps, portfolioPopup } from "../data/popup";
+import { PopupProps, projects } from "../data/popup";
 
 export interface ProjectProps {
   title: string;
@@ -14,36 +14,29 @@ export interface ProjectProps {
   buttons: ButtonWithLinkProps[];
 }
 
+// Equal-sized preview tiles, cropped from the top so screenshots line up
 const ImagePartition = ({ images }: { images: string[] }) => {
+  const shown = images.slice(0, 3);
   return (
-    <div className="flex flex-row gap-2 w-0 sm:w-full">
-      <Image
-        className="w-1/2 rounded-2xl"
-        src={`/popup/${images[0]}`}
-        width={600}
-        height={600}
-        alt={`Image ${images[0]}`}
-      ></Image>
-      {images.length > 1 && (
-        <div className="flex flex-col gap-2 w-1/2 ">
+    <div
+      className={`hidden sm:grid gap-3 mt-4 ${shown.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}
+    >
+      {shown.map((image, i) => (
+        <div
+          key={image}
+          className={`relative overflow-hidden rounded-xl border border-black/10 dark:border-white/10 aspect-[16/10] ${
+            shown.length === 3 && i === 0 ? "row-span-2 aspect-auto" : ""
+          }`}
+        >
           <Image
-            className="rounded-2xl"
-            src={`/popup/${images[1]}`}
-            width={600}
-            height={600}
-            alt={`Image ${images[1]}`}
-          ></Image>
-          {images.length > 2 && (
-            <Image
-              className="rounded-2xl"
-              src={`/popup/${images[2]}`}
-              width={600}
-              height={600}
-              alt={`Image ${images[2]}`}
-            ></Image>
-          )}
+            className="object-cover object-top"
+            src={`/popup/${image}`}
+            fill
+            sizes="(min-width: 1280px) 560px, 50vw"
+            alt={`Preview ${i + 1}`}
+          />
         </div>
-      )}
+      ))}
     </div>
   );
 };
@@ -80,9 +73,11 @@ const ProjectSection = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <ScrollReveal delay={500}>
-        <Project {...portfolioPopup(darkMode)}></Project>
-      </ScrollReveal>
+      {projects(darkMode).map((project, i) => (
+        <ScrollReveal key={project.title} delay={500 + i * 100}>
+          <Project {...project}></Project>
+        </ScrollReveal>
+      ))}
     </div>
   );
 };

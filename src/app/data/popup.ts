@@ -255,3 +255,8 @@ export const achievements = (darkMode: boolean): PopupProps[] => [
   hacktitudePopup(darkMode),
   oWastePopup,
 ];
+
+// Projects shown in the Projects section
+export const projects = (darkMode: boolean): PopupProps[] => [
+  portfolioPopup(darkMode),
+];
