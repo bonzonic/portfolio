@@ -1,9 +1,9 @@
 import { memo, useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "../components/button";
+import { LINKS, PROFILE } from "../data/profile";
 
-const DESCRIPTION =
-  "Full-stack developer with 3 years of experience building and shipping products in fast-paced environments. Experienced in developing end-to-end systems, from CRUD applications to high-performance, real-time platforms. Specializes in React, TypeScript, Vue, and WebGL, with a focus on low-latency, data-intensive systems. Leverages AI-assisted workflows to rapidly deliver scalable, production-ready applications.";
+const DESCRIPTION = PROFILE.description;
 
 const Profile = () => {
   const [displayed, setDisplayed] = useState("");
@@ -32,17 +32,17 @@ const Profile = () => {
         <div className="mt-2 flex flex-row gap-4 md:gap-10 justify-center sm:justify-start flex-wrap mb-2 order-2">
           <Button
             name="GitHub"
-            url="https://github.com/bonzonic"
+            url={LINKS.github}
             image="/icons/github-dark.png"
           />
           <Button
             name="LinkedIn"
-            url="https://www.linkedin.com/in/yi-zhen-nicholas-wong-1327b0207/"
+            url={LINKS.linkedin}
             image="/icons/linkedin-white.png"
           />
           <Button
             name="Resume"
-            url="/WongYiZhenNicholas_Resume.pdf"
+            url={LINKS.resume}
             image="/icons/download-white.png"
             download={true}
           />

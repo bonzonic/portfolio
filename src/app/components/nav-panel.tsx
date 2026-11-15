@@ -25,27 +25,27 @@ const NavigationLink = memo(
 
     return (
       <a
-        className="flex items-center lg:gap-4 2xl:gap-6"
+        className="flex items-center gap-3 2xl:gap-4 opacity-80 hover:opacity-100"
         href={`#${navigationText}`}
         onClick={handleClick}
       >
-        <div className="relative lg:w-[30px] lg:h-[30px] w-[30px] h-[30px]">
+        <div className="relative w-[22px] h-[22px] 2xl:w-[24px] 2xl:h-[24px] shrink-0">
           <Image
-            className="lg:w-[30px] lg:h-[30px] absolute dark:opacity-0"
+            className="w-full h-full absolute dark:opacity-0"
             src={`/icons/${iconPath}.png`}
             width={30}
             height={30}
             alt={`${navigationText} icon`}
           />
           <Image
-            className="lg:w-[30px] lg:h-[30px] absolute opacity-0 dark:opacity-100"
+            className="w-full h-full absolute opacity-0 dark:opacity-100"
             src={`/icons/${iconPath}-dark.png`}
             width={30}
             height={30}
             alt={`${navigationText} icon`}
           />
         </div>
-        <p className="2xl:text-2xl xl:text-xl lg:text-lg text-black dark:text-white [transition-duration:100ms]">{navigationText}</p>
+        <p className="text-base 2xl:text-lg text-black dark:text-white [transition-duration:100ms]">{navigationText}</p>
       </a>
     );
   },
@@ -55,9 +55,9 @@ NavigationLink.displayName = "NavigationLink";
 
 const NavPanel = memo(function NavPanel() {
   return (
-    <div className="fixed bg-[#FAFAFA] dark:bg-background-dark">
-      <nav className="h-screen lg:min-w-[225px] xl:min-w-[250px] 2xl:min-w-[305px] flex justify-center">
-        <div className="flex-col flex gap-14 justify-center">
+    <div className="fixed top-0 left-0 h-screen lg:w-[180px] xl:w-[200px] 2xl:w-[230px] border-r border-black/15 dark:border-white/25 bg-[#FAFAFA] dark:bg-background-dark">
+      <nav className="h-full flex justify-center">
+        <div className="flex-col flex gap-10 2xl:gap-12 justify-center">
           {navigationLinks.map((link, index) => (
             <div key={index}>
               <NavigationLink
@@ -68,8 +68,8 @@ const NavPanel = memo(function NavPanel() {
           ))}
         </div>
       </nav>
-      <div className="flex flex-row absolute bottom-12 left-12 gap-4 items-center">
-        <p className="text-lg xl:text-xl text-black dark:text-white [transition-duration:100ms]">Dark Mode</p>
+      <div className="flex flex-row absolute bottom-10 inset-x-0 justify-center gap-3 items-center">
+        <p className="text-sm 2xl:text-base text-black dark:text-white [transition-duration:100ms]">Dark Mode</p>
         <label className="relative inline-block w-[50px] h-[24px]">
           <input
             type="checkbox"

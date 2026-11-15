@@ -12,6 +12,8 @@ import { ContactSection } from "./sections/contact-section";
 import useDarkMode, { DarkContext, PopupContext, usePopup } from "./utils/main";
 import Popup from "./components/popup";
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
+import { registerPortfolioTools } from "./webmcp/tools";
 
 /**
  * Dynamic because we have to do client side rendering, due to the dark mode configuration, where we store inside local storage
@@ -22,12 +24,14 @@ const Home = dynamic(
       const { isOpen, popupValue, openPopup, closePopup } = usePopup();
       const { darkMode, isInitializing } = useDarkMode();
 
+      useEffect(() => registerPortfolioTools(), []);
+
       return (
         <DarkContext.Provider value={darkMode}>
           <main
-            className={`${darkMode ? "dark" : ""} ${isInitializing ? "no-transition" : ""} h-auto flex flex-row divide-x dark:divide-white/70 divide-black/50 font-[Inter] bg-[#FAFAFA] dark:text-white dark:bg-background-dark`}
+            className={`${darkMode ? "dark" : ""} ${isInitializing ? "no-transition" : ""} h-auto flex flex-row font-[Inter] bg-[#FAFAFA] dark:text-white dark:bg-background-dark`}
           >
-            <div className="lg:min-w-[225px] xl:min-w-[250px] 2xl:min-w-[305px] lg:visible invisible">
+            <div className="hidden lg:block shrink-0 lg:w-[180px] xl:w-[200px] 2xl:w-[230px]">
               <NavPanel />
             </div>
             <PopupContext.Provider value={openPopup}>
