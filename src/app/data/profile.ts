@@ -11,13 +11,9 @@ export const PROFILE = {
   handle: "wong.nicholas_",
   role: "Full Stack Developer",
   yearsOfExperience: 3,
-  location: "Malaysia, relocating to Singapore",
-  // Typed out on the profile header
+  // Typed out on the profile header and returned to agents by get_profile_summary
   description:
     "Full-stack developer with 3 years of experience building and shipping products in fast-paced environments. Experienced in developing end-to-end systems, from CRUD applications to high-performance, real-time platforms. Specializes in React, TypeScript, Vue, and WebGL, with a focus on low-latency, data-intensive systems. Leverages AI-assisted workflows to rapidly deliver scalable, production-ready applications.",
-  // Short pitch for agents and recruiters
-  summary:
-    "Full-stack engineer (~3 years) building real-time, data-intensive products: trading analytics on multi-exchange market data at a crypto startup (Trontal Group), and enterprise logistics software at Dassault Systèmes. Strongest in React/TypeScript and Vue frontends for high-frequency data (WebSockets, WebGL/canvas charting) with Node and Java backends. Uses AI agents and MCP tooling in day-to-day engineering.",
 };
 
 export const EDUCATION = [
